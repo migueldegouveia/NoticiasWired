@@ -159,3 +159,22 @@ dotnet run
 cd NoticiasMvc
 dotnet run
 ```
+## Capturas de pantalla
+
+### Listado de noticias
+![Listado de noticias](screenshots/InicioNoticiaCreada.png)
+
+### Detalles de una noticia externa
+![Detalles](screenshots/DetallesNoticiaExterna.png)
+
+### Detalles de una noticia propia
+![Detalles](screenshots/DDetallesNoticiaPropia.png)
+
+### Crear noticia
+![Crear noticia](screenshots/CrearNoticia.png)
+
+### Editar noticia
+![Crear noticia](screenshots/ModificarNoticia.png)
+
+### Importador RSS (Consola)
+![Consola importando RSS](screenshots/Consola.png)
