@@ -1,0 +1,43 @@
+# Ignorar configuraciones sensibles
+appsettings.json
+appsettings.Development.json
+
+# Ignorar binarios
+bin/
+obj/
+out/
+
+# Archivos de usuario
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# VSCode
+.vscode/
+
+# Logs
+*.log
+
+# NuGet
+*.nupkg
+packages/
+.nuget/
+
+# Archivos temporales
+*.tmp
+*.temp
+*.cache
+*.bak
+
+# Publicaciones
+publish/
+wwwroot/lib/
+
+# JetBrains Rider
+.idea/
+*.iml
+
+# Archivos del sistema
+Thumbs.db
+.DS_Store
