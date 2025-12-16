@@ -63,8 +63,8 @@ Actualmente, el proyecto funciona de forma local, pero mantiene la misma arquite
 
 ---
 
-## 📦 Estructura del repositorio
-
+## Estructura del repositorio
+```
 NoticiasWired/
 │
 ├── NoticiasMvc/
@@ -85,12 +85,12 @@ NoticiasWired/
 │
 ├── .gitignore
 └── README.md
-
+```
 ---
 
-## 🧪 Funcionalidades principales
+## Funcionalidades principales
 
-### ✅ Aplicación MVC
+### Aplicación MVC
 - Listado de noticias con paginación
 - Filtro por fuente
 - Sección **“Mis noticias”** (noticias creadas manualmente)
@@ -99,7 +99,7 @@ NoticiasWired/
 - Diferenciación visual entre noticias propias y externas
 - Limpieza automática de HTML en las descripciones
 
-### ✅ Importador RSS (Consola)
+### Importador RSS (Consola)
 - Descarga noticias desde un feed RSS externo
 - Limpia etiquetas HTML
 - Evita duplicados
@@ -108,12 +108,12 @@ NoticiasWired/
 
 ---
 
-## 🛠️ Configuración y ejecución local
+## Configuración y ejecución local
 
 ### 1 Clonar el repositorio
 ```bash
-git clone https://github.com/TU_USUARIO/NoticiasWired.git
-
+git clone https://github.com/TU_USUARIO/NoticiasWired.git 
+```
 ### 2 Configurar la base de datos
 
 - Crear una base de datos SQL Server
