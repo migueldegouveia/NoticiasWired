@@ -1,0 +1,58 @@
+﻿@model Noticia
+
+<!-- Contenedor con estilo periódico -->
+<div class="article-container">
+
+    <h1 class="article-title">Editar noticia</h1>
+
+    <!-- Formulario de edición -->
+    <form asp-action="Edit" method="post">
+
+        <!-- Campo oculto con el ID de la noticia -->
+        <input type="hidden" asp-for="IdNoticia" />
+
+        <!-- Campo: Título -->
+        <div class="form-group">
+            <label for="Titulo">Título</label>
+            <input asp-for="Titulo" class="form-control" />
+        </div>
+
+        <!-- Campo: Descripción -->
+        <div class="form-group">
+            <label for="Descripcion">Descripción</label>
+            <textarea asp-for="Descripcion" class="form-control"></textarea>
+        </div>
+
+        <!-- Campo: Fecha -->
+        <div class="form-group">
+            <label for="Fecha">Fecha</label>
+            <input asp-for="Fecha" type="date" class="form-control" />
+        </div>
+
+        <!-- Campo: Fuente -->
+        <div class="form-group">
+            <label for="Fuente">Fuente</label>
+            <input asp-for="Fuente" class="form-control" />
+        </div>
+
+        <!-- Campo: Link -->
+        <div class="form-group">
+            <label for="Link">Link</label>
+            <input asp-for="Link" class="form-control" />
+        </div>
+
+        <!-- Acciones del formulario -->
+        <div class="article-actions">
+            <button type="submit" class="btn btn-primary">Guardar cambios</button>
+
+            <!-- Volver a detalles sin guardar -->
+            <a asp-action="Details"
+               asp-route-id="@Model.IdNoticia"
+               class="btn btn-secondary">
+                Cancelar
+            </a>
+        </div>
+
+    </form>
+
+</div>

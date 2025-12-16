@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Título dinámico de cada vista -->
+    <title>@ViewData["Title"] - Noticias WIRED</title>
+
+    <!-- Bootstrap y estilos propios -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+
+<body class="layout">
+
+    <!-- ============================================================
+         CABECERA PRINCIPAL DEL PERIÓDICO
+         ============================================================ -->
+    <header class="newspaper-header">
+
+        <!-- Zona superior con título y subtítulo -->
+        <div class="masthead">
+            <div class="container text-center">
+                <h1 class="masthead-title">Noticias WIRED</h1>
+                <p class="masthead-subtitle">Información clara, precisa y actual</p>
+            </div>
+        </div>
+
+        <!-- ============================================================
+             BARRA DE NAVEGACIÓN PRINCIPAL
+             ============================================================ -->
+        <nav class="navbar newspaper-nav">
+            <div class="container d-flex justify-content-between align-items-center">
+
+                <!-- Enlaces principales de navegación -->
+                <div class="nav-left d-flex align-items-center">
+                    <a class="nav-logo" asp-controller="Noticias" asp-action="Index">Inicio</a>
+
+                    <!-- Enlaces decorativos (no funcionales por ahora) -->
+                    <a class="nav-link" href="#">Tecnología</a>
+                    <a class="nav-link" href="#">Actualidad</a>
+                    <a class="nav-link" href="#">Opinión</a>
+                    <a class="nav-link" href="#">Tendencias</a>
+
+                    <!-- Enlace a las noticias creadas por el usuario -->
+                    <a class="nav-link"
+                       asp-controller="Noticias"
+                       asp-action="Index"
+                       asp-route-misNoticias="true">
+                        Mis noticias
+                    </a>
+                </div>
+
+                <!-- Botón para crear una nueva noticia -->
+                <div class="nav-right">
+                    <a class="btn btn-primary"
+                       asp-controller="Noticias"
+                       asp-action="Create">
+                        Crear noticia
+                    </a>
+                </div>
+
+            </div>
+        </nav>
+
+    </header>
+
+    <!-- ============================================================
+         CONTENIDO PRINCIPAL DE CADA VISTA
+         ============================================================ -->
+    <main class="content container my-4">
+        @RenderBody()
+    </main>
+
+    <!-- ============================================================
+         PIE DE PÁGINA
+         ============================================================ -->
+    <footer class="footer">
+        <div class="container">
+            <p class="mb-0">© 2025 · Miguel Dias · ASP.NET MVC</p>
+        </div>
+    </footer>
+
+    <!-- Scripts de Bootstrap y scripts adicionales de cada vista -->
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>

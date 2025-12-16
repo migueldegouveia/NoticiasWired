@@ -1,0 +1,129 @@
+﻿@model List<Noticia>
+@using System.Text.RegularExpressions
+
+@{
+    // Título de la página y datos de paginación enviados desde el controlador
+    ViewData["Title"] = "Últimas Noticias";
+    int page = ViewBag.Page;
+    int totalPages = ViewBag.TotalPages;
+}
+
+@functions {
+    /// <summary>
+    /// Elimina etiquetas HTML de un texto para mostrar solo contenido limpio.
+    /// </summary>
+    string StripHtml(string input)
+    {
+        return Regex.Replace(input, "<.*?>", string.Empty);
+    }
+}
+
+<!-- Mensaje de éxito tras crear/editar/eliminar -->
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+<h1>Últimas Noticias</h1>
+
+<!-- ============================================================
+     FILTRO POR FUENTE
+     ============================================================ -->
+<form method="get" style="margin-bottom:20px;">
+    <select name="fuente" onchange="this.form.submit()">
+        <option value="">Todas las fuentes</option>
+
+        @foreach (var f in ViewBag.Fuentes)
+        {
+            <!-- Marca como seleccionada la fuente actual -->
+            <option value="@f"
+                    selected="@(f == ViewBag.FuenteSeleccionada)">
+                @f
+            </option>
+        }
+    </select>
+</form>
+
+<!-- ============================================================
+     LISTADO DE NOTICIAS
+     ============================================================ -->
+@foreach (var n in Model)
+{
+    <!-- Diferencia visual entre noticias propias y externas -->
+    <div class="news-card @(n.EsNoticiaPropia ? "news-propia" : "news-externa")">
+
+        <!-- Badge indicando el origen -->
+        @if (n.EsNoticiaPropia)
+        {
+            <span class="badge bg-primary">Noticia creada por mí</span>
+        }
+        else
+        {
+            <span class="badge bg-secondary">Fuente externa</span>
+        }
+
+        <!-- Título -->
+        <h2>@n.Titulo</h2>
+
+        <!-- Fecha y fuente -->
+        <div class="news-meta">
+            @n.Fecha.ToString("dd/MM/yyyy") · @n.Fuente
+        </div>
+
+        <!-- Descripción recortada y sin HTML -->
+        <p class="news-desc">
+            @{
+                var clean = StripHtml(n.Descripcion ?? "");
+                @(clean.Length > 150 ? clean.Substring(0, 150) + "..." : clean)
+            }
+        </p>
+
+        <!-- Botón para ver detalles -->
+        <a asp-action="Details"
+           asp-route-id="@n.IdNoticia"
+           class="btn btn-primary">
+            Leer más
+        </a>
+
+        <!-- Botón para ir a la fuente original (solo noticias externas) -->
+        @if (!n.EsNoticiaPropia)
+        {
+            <a href="@n.Link" target="_blank"
+               class="btn btn-outline-secondary" style="margin-left:10px;">
+                Ir a la fuente
+            </a>
+        }
+    </div>
+}
+
+<!-- ============================================================
+     PAGINACIÓN
+     ============================================================ -->
+<div class="pagination">
+
+    <!-- Botón anterior -->
+    @if (page > 1)
+    {
+        <a asp-action="Index"
+           asp-route-page="@(page - 1)"
+           asp-route-fuente="@ViewBag.FuenteSeleccionada"
+           class="btn btn-secondary">
+            Anterior
+        </a>
+    }
+
+    <span>Página @(page) de @totalPages</span>
+
+    <!-- Botón siguiente -->
+    @if (page < totalPages)
+    {
+        <a asp-action="Index"
+           asp-route-page="@(page + 1)"
+           asp-route-fuente="@ViewBag.FuenteSeleccionada"
+           class="btn btn-secondary">
+            Siguiente
+        </a>
+    }
+</div>

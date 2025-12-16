@@ -1,0 +1,100 @@
+﻿@model Noticia
+
+<!-- Contenedor principal del artículo con estilo periódico -->
+<div class="article-container @(Model.EsNoticiaPropia ? "article-propia" : "article-externa")">
+
+    <!-- Título de la noticia -->
+    <h1 class="article-title">@Model.Titulo</h1>
+
+    <!-- Metadatos: fecha y fuente -->
+    <div class="article-meta">
+        <span>@Model.Fecha.ToString("dd/MM/yyyy")</span>
+        <span>·</span>
+        <span>@Model.Fuente</span>
+    </div>
+
+    <!-- Cuerpo completo de la noticia (permite HTML) -->
+    <div class="article-body">
+        @Html.Raw(Model.Descripcion)
+    </div>
+
+    <!-- Acciones disponibles según el tipo de noticia -->
+    <div class="article-actions">
+
+        @if (Model.EsNoticiaPropia)
+        {
+            <!-- Botón para editar la noticia -->
+            <a asp-action="Edit"
+               asp-route-id="@Model.IdNoticia"
+               class="btn btn-warning">
+                Modificar
+            </a>
+
+            <!-- Formulario para eliminar la noticia con confirmación -->
+            <form asp-action="Delete"
+                  asp-route-id="@Model.IdNoticia"
+                  method="post"
+                  onsubmit="return confirm('¿Seguro que deseas eliminar esta noticia?');"
+                  style="display:inline;">
+
+                <!-- Botón que abre el modal de confirmación -->
+                <button type="button"
+                        class="btn btn-danger"
+                        data-bs-toggle="modal"
+                        data-bs-target="#confirmDelete">
+                    Eliminar
+                </button>
+
+                <!-- Modal de confirmación de eliminación -->
+                <div class="modal fade" id="confirmDelete" tabindex="-1">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+
+                            <div class="modal-header">
+                                <h5 class="modal-title">Confirmar eliminación</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+
+                            <div class="modal-body">
+                                ¿Seguro que deseas eliminar esta noticia?
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button"
+                                        class="btn btn-secondary"
+                                        data-bs-dismiss="modal">
+                                    Cancelar
+                                </button>
+
+                                <!-- Botón final que ejecuta la eliminación -->
+                                <form asp-action="Delete"
+                                      asp-route-id="@Model.IdNoticia"
+                                      method="post">
+                                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+
+            <!-- Volver al listado -->
+            <a asp-action="Index" class="btn btn-secondary">Volver</a>
+        }
+        else
+        {
+            <!-- Para noticias externas: enlace a la fuente original -->
+            <a href="@Model.Link"
+               target="_blank"
+               class="btn btn-primary">
+                Ir a la publicación original
+            </a>
+
+            <!-- Volver al listado -->
+            <a asp-action="Index" class="btn btn-secondary">Volver</a>
+        }
+    </div>
+
+</div>

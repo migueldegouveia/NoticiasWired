@@ -1,0 +1,46 @@
+﻿@model Noticia
+
+<!-- Mensaje de error si la creación falló -->
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+<!-- Contenedor visual del formulario -->
+<div class="card">
+    <h1>Crear Noticia</h1>
+
+    <!-- Formulario para crear una nueva noticia -->
+    <form asp-action="Create" method="post">
+
+        <!-- Campo: Título de la noticia -->
+        <div class="form-group">
+            <label>Título</label>
+            <input asp-for="Titulo" />
+        </div>
+
+        <!-- Campo: Descripción o contenido -->
+        <div class="form-group">
+            <label>Descripción</label>
+            <textarea asp-for="Descripcion"></textarea>
+        </div>
+
+        <!-- Campo: Fecha de publicación -->
+        <div class="form-group">
+            <label>Fecha</label>
+            <input asp-for="Fecha" type="date" />
+        </div>
+
+        <!-- Campo: Autor o fuente de la noticia -->
+        <div class="form-group">
+            <label>Autor</label>
+            <input asp-for="Fuente" />
+        </div>
+
+        <!-- Acciones del formulario -->
+        <button class="btn btn-primary">Guardar</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>

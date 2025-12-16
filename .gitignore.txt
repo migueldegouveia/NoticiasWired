@@ -1,0 +1,47 @@
+# ============================================
+#   .NET / Visual Studio / ASP.NET Core
+# ============================================
+
+# Build results
+bin/
+obj/
+out/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio Code
+.vscode/
+
+# ASP.NET Core secrets
+appsettings.json
+appsettings.Development.json
+
+# Logs
+*.log
+
+# NuGet
+*.nupkg
+packages/
+.nuget/
+
+# Temporary files
+*.tmp
+*.temp
+*.cache
+*.bak
+
+# Publish output
+publish/
+wwwroot/lib/
+
+# Rider / JetBrains
+.idea/
+*.iml
+
+# OS files
+Thumbs.db
+.DS_Store

@@ -1,0 +1,380 @@
+/* ============================================================
+   RESET BÁSICO
+   ============================================================ */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f5f6f7;
+    color: #222;
+    line-height: 1.5;
+}
+
+/* ============================================================
+   CONTENEDOR GENERAL
+   ============================================================ */
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* ============================================================
+   CABECERA TIPO PERIÓDICO
+   ============================================================ */
+.masthead {
+    background: #ffffff;
+    padding: 35px 0 25px;
+    border-bottom: 3px solid #111;
+    box-shadow: 0 4px 10px rgba(0,0,0,.05);
+}
+
+.masthead-title {
+    font-family: Georgia, serif;
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.masthead-subtitle {
+    font-family: Georgia, serif;
+    font-size: 1rem;
+    color: #555;
+    margin-top: 5px;
+}
+
+/* ============================================================
+   NAVBAR ESTILO PERIÓDICO
+   ============================================================ */
+.newspaper-nav {
+    background: #111;
+    padding: 12px 0;
+    border-bottom: 4px solid #ff4500;
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo {
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1.1rem;
+    margin-right: 20px;
+}
+
+    .nav-logo:hover {
+        color: #ff4500;
+    }
+
+.newspaper-nav .nav-link,
+.nav-left .nav-link {
+    color: #ddd;
+    font-weight: 600;
+    margin-left: 20px;
+    text-decoration: none;
+    transition: color .2s ease;
+}
+
+    .newspaper-nav .nav-link:hover,
+    .nav-left .nav-link:hover {
+        color: #ff4500;
+    }
+
+.nav-right .btn-primary {
+    padding: 8px 18px;
+    font-size: .9rem;
+    border-radius: 6px;
+}
+
+/* ============================================================
+   TITULOS
+   ============================================================ */
+h1 {
+    margin-bottom: 25px;
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+/* ============================================================
+   TARJETAS DE NOTICIAS
+   ============================================================ */
+.news-card {
+    background: white;
+    border-radius: 12px;
+    padding: 22px;
+    margin-bottom: 22px;
+    box-shadow: 0 4px 14px rgba(0,0,0,.08);
+    transition: transform .15s ease, box-shadow .15s ease;
+}
+
+    .news-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 18px rgba(0,0,0,.12);
+    }
+
+    .news-card h2 {
+        font-size: 1.5rem;
+        margin-bottom: 8px;
+        font-weight: 700;
+    }
+
+.news-meta {
+    color: #777;
+    font-size: .85rem;
+    margin-bottom: 12px;
+}
+
+.news-desc {
+    margin: 15px 0;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Diferenciación visual */
+.news-propia {
+    background-color: #e8f1ff;
+    border-left: 6px solid #0d6efd;
+}
+
+.news-externa {
+    background-color: #f8f9fa;
+}
+
+/* ============================================================
+   TARJETAS DE FORMULARIOS
+   ============================================================ */
+.card {
+    max-width: 900px;
+    margin: 30px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.08);
+}
+
+    .card h1 {
+        margin-bottom: 20px;
+    }
+
+/* ============================================================
+   FORMULARIOS
+   ============================================================ */
+.form-group {
+    margin-bottom: 18px;
+}
+
+label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background: #fff;
+    transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+    input:focus, textarea:focus, select:focus {
+        border-color: #ff4500;
+        box-shadow: 0 0 4px rgba(255, 69, 0, .4);
+    }
+
+textarea {
+    min-height: 150px;
+}
+
+/* ============================================================
+   BOTONES
+   ============================================================ */
+.btn {
+    display: inline-block;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: .9rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+
+.btn-primary {
+    background: #e65100;
+    color: white;
+}
+
+    .btn-primary:hover {
+        background: #bf4800;
+        transform: translateY(-2px);
+    }
+
+.btn-secondary {
+    background: #4a4a4a;
+    color: white;
+}
+
+    .btn-secondary:hover {
+        background: #333;
+        transform: translateY(-2px);
+    }
+
+.btn-warning {
+    background: #ffb300;
+    color: #222;
+}
+
+    .btn-warning:hover {
+        background: #e6a100;
+        transform: translateY(-2px);
+    }
+
+.btn-danger {
+    background: #d32f2f;
+    color: white;
+}
+
+    .btn-danger:hover {
+        background: #b71c1c;
+        transform: translateY(-2px);
+    }
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid #555;
+    color: #555;
+}
+
+    .btn-outline:hover {
+        background: #555;
+        color: white;
+        transform: translateY(-2px);
+    }
+
+/* ============================================================
+   PAGINACIÓN
+   ============================================================ */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 35px;
+    align-items: center;
+}
+
+    .pagination span {
+        font-weight: 600;
+    }
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+.layout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+    background: #111;
+    color: #bbb;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 14px;
+    margin-top: 40px;
+}
+
+    .footer a {
+        color: #ff4500;
+        text-decoration: none;
+        transition: opacity .2s ease;
+    }
+
+        .footer a:hover {
+            opacity: .8;
+        }
+
+/* ============================================================
+   BADGES
+   ============================================================ */
+.badge {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: .75rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.bg-primary {
+    background: #0d6efd;
+    color: white;
+}
+
+.bg-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+/* ============================================================
+   ARTÍCULO (DETAILS Y EDIT)
+   ============================================================ */
+.article-container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,.08);
+    font-family: Georgia, serif;
+}
+
+.article-title {
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.article-meta {
+    font-size: .9rem;
+    color: #777;
+    margin-bottom: 25px;
+    font-style: italic;
+}
+
+.article-body {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+.article-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.article-propia {
+    border-left: 6px solid #0d6efd;
+}
+
+.article-externa {
+    border-left: 6px solid #ff4500;
+}
