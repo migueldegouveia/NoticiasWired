@@ -177,4 +177,4 @@ dotnet run
 ![Editar noticia](screenshots/Modificar%20Noticia.png)
 
 ### Importador RSS (Consola)
-![Consola importando RSS](screenshots/Consola.png)
+![Consola importando RSS](screenshots/Cosnola.png)
