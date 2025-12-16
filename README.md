@@ -162,19 +162,19 @@ dotnet run
 ## Capturas de pantalla
 
 ### Listado de noticias
-![Listado de noticias](screenshots/InicioNoticiaCreada.png)
+![Listado de noticias]("screenshots/Inicio Noticia Creada.png")
 
 ### Detalles de una noticia externa
-![Detalles](screenshots/DetallesNoticiaExterna.png)
+![Detalles](screenshots/"Detalles Noticia Externa.png")
 
 ### Detalles de una noticia propia
-![Detalles](screenshots/DDetallesNoticiaPropia.png)
+![Detalles]("screenshots/Detalles Noticia Propia.png")
 
 ### Crear noticia
-![Crear noticia](screenshots/CrearNoticia.png)
+![Crear noticia]("screenshots/Crear Noticia.png")
 
 ### Editar noticia
-![Crear noticia](screenshots/ModificarNoticia.png)
+![Crear noticia]("screenshots/Modificar Noticia.png")
 
 ### Importador RSS (Consola)
-![Consola importando RSS](screenshots/Consola.png)
+![Consola importando RSS]("screenshots/Consola.png")
