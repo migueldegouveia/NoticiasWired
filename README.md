@@ -35,30 +35,31 @@ Actualmente, el proyecto funciona de forma local, pero mantiene la misma arquite
 
 ## Arquitectura del proyecto
 
-┌──────────────────────────┐
-│  Aplicación de Consola   │
-│  (Importador RSS)        │
-│  - Descarga XML RSS      │
-│  - Limpia HTML           │
-│  - Evita duplicados      │
-│  - Inserta noticias      │
-└──────────────┬───────────┘
-│
-▼
-┌──────────────────────────┐
-│     Base de Datos SQL    │
-│  - Tabla noticias        │
-└──────────────┬───────────┘
-│
-▼
-┌──────────────────────────┐
-│  Aplicación MVC          │
-│  - Listado con filtros   │
-│  - CRUD completo         │
-│  - Paginación            │
-│  - Diferencia noticias   │
-│    propias/externas      │
-└──────────────────────────┘
+                          ┌──────────────────────────────┐
+                          │   Aplicación de Consola       │
+                          │   (Importador RSS)            │
+                          │   - Descarga feed RSS         │
+                          │   - Limpia HTML               │
+                          │   - Evita duplicados          │
+                          │   - Inserta noticias          │
+                          └───────────────┬──────────────┘
+                                          │
+                                          ▼
+                          ┌──────────────────────────────┐
+                          │       Base de Datos SQL       │
+                          │   - Tabla noticias            │
+                          └───────────────┬──────────────┘
+                                          │
+                                          ▼
+                          ┌──────────────────────────────┐
+                          │     Aplicación MVC            │
+                          │   - Listado con filtros       │
+                          │   - CRUD completo             │
+                          │   - Paginación                │
+                          │   - Diferencia noticias       │
+                          │     propias/externas          │
+                          └──────────────────────────────┘
+
 
 ---
 
@@ -69,10 +70,18 @@ NoticiasWired/
 ├── NoticiasMvc/
 │   ├── ExamenPractico3Mvc.sln
 │   └── ExamenPractico3Mvc/
+│       ├── Controllers/
+│       ├── Models/
+│       ├── Views/
+│       ├── Data/
+│       └── wwwroot/
 │
 ├── NoticiasConsola/
 │   ├── ExamenPractico3Consola.sln
 │   └── ExamenPractico3Consola/
+│       ├── Program.cs
+│       ├── Data/
+│       └── Repositories/
 │
 ├── .gitignore
 └── README.md
@@ -101,6 +110,48 @@ NoticiasWired/
 
 ## 🛠️ Configuración y ejecución local
 
-### 1️⃣ Clonar el repositorio
+### 1 Clonar el repositorio
 ```bash
 git clone https://github.com/TU_USUARIO/NoticiasWired.git
+
+### 2 Configurar la base de datos
+
+- Crear una base de datos SQL Server
+
+- Crear la tabla correspondiente
+
+CREATE TABLE noticias_MiguelDias (
+    IDNOTICIAS INT IDENTITY(1,1) PRIMARY KEY,
+    TITULO NVARCHAR(500) NOT NULL,
+    LINK NVARCHAR(500) NULL,
+    DESCRIPCION NVARCHAR(MAX) NOT NULL,
+    FECHA DATETIME NOT NULL,
+    FUENTE NVARCHAR(200) NOT NULL
+);
+
+- Añadir tu cadena de conexión en:
+
+NoticiasMvc → appsettings.json
+{
+  "ConnectionStrings": {
+    "hospitalazurexamarin": "Server=...;Database=...;User Id=...;Password=..."
+  }
+}
+
+NoticiasConsola → appsettings.json
+{
+  "ConnectionStrings": {
+    "NoticiasDb": "Server=...;Database=...;User Id=...;Password=..."
+  }
+}
+(Estos archivos están ignorados en GitHub por seguridad.)
+
+### 3 Ejecutar el importador RSS manualmente
+
+cd NoticiasConsola
+dotnet run
+
+### 4 Ejecutar la aplicación MVC
+
+cd NoticiasMvc
+dotnet run
