@@ -119,7 +119,7 @@ git clone https://github.com/TU_USUARIO/NoticiasWired.git
 - Crear una base de datos SQL Server
 
 - Crear la tabla correspondiente
-
+```
 CREATE TABLE noticias_MiguelDias (
     IDNOTICIAS INT IDENTITY(1,1) PRIMARY KEY,
     TITULO NVARCHAR(500) NOT NULL,
@@ -128,30 +128,34 @@ CREATE TABLE noticias_MiguelDias (
     FECHA DATETIME NOT NULL,
     FUENTE NVARCHAR(200) NOT NULL
 );
-
+```
 - Añadir tu cadena de conexión en:
 
 NoticiasMvc → appsettings.json
+```
 {
   "ConnectionStrings": {
     "hospitalazurexamarin": "Server=...;Database=...;User Id=...;Password=..."
   }
 }
-
+```
 NoticiasConsola → appsettings.json
+```
 {
   "ConnectionStrings": {
     "NoticiasDb": "Server=...;Database=...;User Id=...;Password=..."
   }
 }
+```
 (Estos archivos están ignorados en GitHub por seguridad.)
 
 ### 3 Ejecutar el importador RSS manualmente
-
+```
 cd NoticiasConsola
 dotnet run
-
+```
 ### 4 Ejecutar la aplicación MVC
-
+```
 cd NoticiasMvc
 dotnet run
+```
